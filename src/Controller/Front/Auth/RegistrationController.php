@@ -41,15 +41,15 @@ class RegistrationController extends AbstractController
             $em->flush();
 
             // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation(
-                'front_verify_email',
-                $user,
-                (new TemplatedEmail())
-                    ->from(new Address('robot@example.com', 'Robot'))
-                    ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
-                    ->htmlTemplate('front/auth/registration/confirmation_email.html.twig')
-            );
+//            $this->emailVerifier->sendEmailConfirmation(
+//                'front_verify_email',
+//                $user,
+//                (new TemplatedEmail())
+//                    ->from(new Address('robot@example.com', 'Robot'))
+//                    ->to($user->getEmail())
+//                    ->subject('Please Confirm your Email')
+//                    ->htmlTemplate('front/auth/registration/confirmation_email.html.twig')
+//            );
             // do anything else you need here, like send an email
 
             return $this->redirectToRoute('front_home');

@@ -10,6 +10,7 @@ use App\Repository\UserRepository;
 use App\Service\Uploader\Blog\PostImageUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Security\Core\Security;
 
 class PostService
 {
@@ -20,6 +21,7 @@ class PostService
         private CategoryRepository $categoryRepository,
         private TagRepository $tagRepository,
         private UserRepository $userRepository,
+        private Security $security,
     ) {
     }
 
@@ -48,7 +50,7 @@ class PostService
             $filename = $this->uploader->uploadImage($image);
             $post->setImage($filename);
         }
-        $post->setUser($this->getUser());
+        $post->setUser($this->security->getUser());
         $this->em->persist($post);
         $this->em->flush();
     }
