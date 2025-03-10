@@ -7,10 +7,20 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 }
 
 Encore
+   // dev
+//    .setOutputPath('public/build/')
+   // js
+//    .setOutputPath('build/')
+//    .setPublicPath('/build')
+   // prod  yarn encore dev
+   .setOutputPath('build/')
+   .setOutputPath('public/build/')
+   .setPublicPath('/public/build')
+   .setManifestKeyPrefix('build/')
     // directory where compiled assets will be stored
-    .setOutputPath('public/build/')
+    // .setOutputPath('public/build/')
     // public path used by the web server to access the output path
-    .setPublicPath('/build')
+    // .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
